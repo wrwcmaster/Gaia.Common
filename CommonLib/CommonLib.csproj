@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C586E3C8-1870-4054-833E-CF4322C31E44}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CommonLib</RootNamespace>
+    <AssemblyName>CommonLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Execute\Control\IProgressReporter.cs" />
+    <Compile Include="Event\GenericEventArgs.cs" />
+    <Compile Include="Execute\Control\ExecutionProgress.cs" />
+    <Compile Include="Execute\Control\ICancellationIndicator.cs" />
+    <Compile Include="Execute\Control\IExecutionControl.cs" />
+    <Compile Include="Execute\Control\IExecutionControlSplitter.cs" />
+    <Compile Include="Net\Http\HttpHelper.cs" />
+    <Compile Include="Net\Http\HttpMethod.cs" />
+    <Compile Include="Net\Http\RequestModifier\IHttpRequestUriModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\IHttpRequestHeaderModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\IHttpRequestBodyModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\IHttpRequestModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\AbstractHttpRequestModifier.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Execute\" />
+    <Folder Include="Execute\Control\" />
+    <Folder Include="Event\" />
+    <Folder Include="Net\" />
+    <Folder Include="Net\Http\" />
+    <Folder Include="Net\Http\RequestModifier\" />
+  </ItemGroup>
+</Project>
