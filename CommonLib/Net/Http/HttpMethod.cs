@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CommonLib.Net.Http
+namespace Gaia.CommonLib.Net.Http
 {
 	public sealed class HttpMethod {
 

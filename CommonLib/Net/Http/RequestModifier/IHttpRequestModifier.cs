@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace CommonLib.Net.Http.RequestModifier
+namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
 	public interface IHttpRequestModifier : IHttpRequestUriModifier, IHttpRequestBodyModifier
 	{

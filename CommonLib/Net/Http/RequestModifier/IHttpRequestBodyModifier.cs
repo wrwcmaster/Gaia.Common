@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace CommonLib.Net.Http.RequestModifier
+namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
 	public interface IHttpRequestBodyModifier
 	{

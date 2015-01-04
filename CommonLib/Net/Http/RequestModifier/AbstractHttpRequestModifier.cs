@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace CommonLib.Net.Http.RequestModifier
+namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
-    public class AbstractHttpRequestModifier : IHttpRequestModifier
+    public abstract class AbstractHttpRequestModifier : IHttpRequestModifier
     {
-        public IList<IHttpRequestHeaderModifier> HeaderModifiers { get; }
+        public virtual IList<IHttpRequestHeaderModifier> HeaderModifiers
+        {
+            get
+            {
+                return new List<IHttpRequestHeaderModifier>();
+            }
+        }
 
         #region IHttpRequestModifier implementation
 
@@ -22,7 +28,10 @@ namespace CommonLib.Net.Http.RequestModifier
             return request;
         }
 
-        public abstract HttpWebRequest PostProcessRequest(HttpWebRequest request);
+        public virtual HttpWebRequest PostProcessRequest(HttpWebRequest request)
+        {
+            return request;
+        }
 
         #endregion
 
@@ -34,7 +43,10 @@ namespace CommonLib.Net.Http.RequestModifier
 
         #region IHttpRequestUriModifier implementation
 
-        public abstract Uri ModifyUri(Uri originalUri);
+        public Uri ModifyUri(Uri originalUri)
+        {
+            return originalUri;
+        }
 
         #endregion
 
@@ -44,11 +56,12 @@ namespace CommonLib.Net.Http.RequestModifier
 
         private void ApplyHeaderModifier(HttpWebRequest request, IHttpRequestHeaderModifier modifier)
         {
-            if(modifier == null) return request;
+            if(modifier == null) return;
             string key = modifier.HeaderKey;
             if (!String.IsNullOrWhiteSpace(key))
             {
-
+                string value = request.Headers.Get(key);
+                request.Headers.Set(key, modifier.ModifyHeaderValue(value));
             }
         }
 
