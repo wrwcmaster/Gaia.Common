@@ -14,6 +14,12 @@ namespace Gaia.CommonLib.Net.Http.ResponseParser
         {
             Encoding = encoding;
         }
+
+        public HttpResponseStringParser()
+            : this(UTF8Encoding.UTF8)
+        {
+            
+        }
         public string ParseHttpResponse(System.Net.HttpWebResponse response, Execute.Control.IExecutionControl control)
         {
             using (Stream s = response.GetResponseStream())

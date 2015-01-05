@@ -31,9 +31,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
-    <Compile Include="Net\Http\RequestModifier\HttpRequestHeaderModifier.cs" />
+    <Compile Include="Net\Http\HttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestMultipartFormModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\HttpRequestSingleHeaderModifier.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseStringParser.cs" />
     <Compile Include="Net\Http\ResponseParser\IHttpResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -46,7 +46,7 @@
     <Compile Include="Net\Http\HttpHelper.cs" />
     <Compile Include="Net\Http\HttpMethod.cs" />
     <Compile Include="Net\Http\RequestModifier\IHttpRequestUriModifier.cs" />
-    <Compile Include="Net\Http\RequestModifier\IHttpRequestHeaderModifier.cs" />
+    <Compile Include="Net\Http\IHttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\IHttpRequestBodyModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\IHttpRequestModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\AbstractHttpRequestModifier.cs" />

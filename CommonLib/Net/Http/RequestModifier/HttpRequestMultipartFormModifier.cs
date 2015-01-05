@@ -20,6 +20,13 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
                 FileName = Path.GetFileName(filePath);
                 FileStreamProvider = () => new FileStream(filePath, FileMode.Open);
             }
+
+            public FileInfo(FileStream fileStream)
+            {
+                if (fileStream == null) throw new ArgumentNullException("fileStream");
+                FileName = Path.GetFileName(fileStream.Name);
+                FileStreamProvider = () => fileStream;
+            }
         }
 
         private IEnumerable<KeyValuePair<string, string>> _parameters;
@@ -36,12 +43,12 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
             _fileFields = fileFields;
         }
         
-        public override IList<IHttpRequestHeaderModifier> HeaderModifiers
+        public override IList<IHttpHeaderModifier> HeaderModifiers
         {
             get
             {
-                return new List<IHttpRequestHeaderModifier>(){
-                    new HttpRequestHeaderModifier("Content-Type", "multipart/form-data; boundary=" + _boundary)
+                return new List<IHttpHeaderModifier>(){
+                    new HttpHeaderModifier("Content-Type", "multipart/form-data; boundary=" + _boundary)
                 };
             }
         }
@@ -61,6 +68,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 
         private void WriteParamBodyParts(Stream requestStream)
         {
+            if (_parameters == null) return;
             foreach(var parameter in _parameters){
                 WriteText(requestStream, String.Format("{0}\r\nContent-Disposition: form-data; name=\"{1}\"\r\n\r\n{2}\r\n", BoundaryMultiPart, parameter.Key ?? "", parameter.Value ?? ""));
             }
@@ -68,6 +76,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 
         private void WriteFileBodyParts(Stream requestStream)
         {
+            if (_fileFields == null) return;
             foreach (var fileField in _fileFields)
             {
                 if(fileField.Value != null){

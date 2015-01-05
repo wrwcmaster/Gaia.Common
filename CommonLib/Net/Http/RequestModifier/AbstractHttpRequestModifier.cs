@@ -6,11 +6,11 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
     public abstract class AbstractHttpRequestModifier : IHttpRequestModifier
     {
-        public virtual IList<IHttpRequestHeaderModifier> HeaderModifiers
+        public virtual IList<IHttpHeaderModifier> HeaderModifiers
         {
             get
             {
-                return new List<IHttpRequestHeaderModifier>();
+                return new List<IHttpHeaderModifier>();
             }
         }
 
@@ -54,14 +54,24 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
         {
         }
 
-        private void ApplyHeaderModifier(HttpWebRequest request, IHttpRequestHeaderModifier modifier)
+        private void ApplyHeaderModifier(HttpWebRequest request, IHttpHeaderModifier modifier)
         {
             if(modifier == null) return;
             string key = modifier.HeaderKey;
             if (!String.IsNullOrWhiteSpace(key))
             {
                 string value = request.Headers.Get(key);
-                request.Headers.Set(key, modifier.ModifyHeaderValue(value));
+                value =  modifier.ModifyHeaderValue(value);
+                switch (key.ToUpper())
+                {
+                    case "CONTENT-TYPE": request.ContentType = value;
+                        break;
+                    case "CONTENT-LENGTH": request.ContentLength = Convert.ToInt64(value);
+                        break;
+                    default:
+                        request.Headers.Set(key, value);
+                        break;
+                }
             }
         }
 

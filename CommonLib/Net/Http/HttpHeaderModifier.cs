@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
-    public class HttpRequestHeaderModifier : IHttpRequestHeaderModifier
+    public class HttpHeaderModifier : IHttpHeaderModifier
     {
 
         public string HeaderKey
@@ -26,7 +26,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
             return HeaderValue;
         }
 
-        public HttpRequestHeaderModifier(string headerKey, string headerValue)
+        public HttpHeaderModifier(string headerKey, string headerValue)
         {
             HeaderKey = headerKey;
             HeaderValue = headerValue;

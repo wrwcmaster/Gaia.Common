@@ -2,7 +2,7 @@
 
 namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
-	public interface IHttpRequestHeaderModifier
+	public interface IHttpHeaderModifier
 	{
 		string HeaderKey { get; }
 		string ModifyHeaderValue (string originalValue);
