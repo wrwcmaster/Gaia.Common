@@ -29,11 +29,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Net\Http\HttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestMultipartFormModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestSingleHeaderModifier.cs" />
+    <Compile Include="Net\Http\ResponseParser\HttpResponseJSONObjectParser.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseStringParser.cs" />
     <Compile Include="Net\Http\ResponseParser\IHttpResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
