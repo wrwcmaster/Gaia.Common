@@ -33,6 +33,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KeyValuePairList.cs" />
     <Compile Include="Net\Http\HttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestMultipartFormModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestSingleHeaderModifier.cs" />
