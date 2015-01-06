@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Text;
 
 namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
@@ -16,7 +18,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 
         #region IHttpRequestModifier implementation
 
-        public HttpWebRequest PreProcessRequest(HttpWebRequest request)
+        public virtual HttpWebRequest PreProcessRequest(HttpWebRequest request)
         {
             if (request != null && HeaderModifiers != null)
             {
@@ -37,13 +39,16 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 
         #region IHttpRequestBodyModifier implementation
 
-        public abstract void WriteBodyContent(System.IO.Stream requestStream);
+        public virtual void WriteBodyContent(System.IO.Stream requestStream)
+        {
+            //do nothing by default
+        }
 
         #endregion
 
         #region IHttpRequestUriModifier implementation
 
-        public Uri ModifyUri(Uri originalUri)
+        public virtual Uri ModifyUri(Uri originalUri)
         {
             return originalUri;
         }
@@ -74,6 +79,14 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
                 }
             }
         }
+
+        protected void WriteText(Stream requestStream, string text, Encoding encoding)
+        {
+            byte[] contents = encoding.GetBytes(text);
+            requestStream.Write(contents, 0, contents.Length);//TODO: use buffer
+        }
+
+        
 
     }
 }

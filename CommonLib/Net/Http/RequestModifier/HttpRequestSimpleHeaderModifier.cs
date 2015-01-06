@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
-    public class HttpRequestSingleHeaderModifier : AbstractHttpRequestModifier
+    public class HttpRequestSimpleHeaderModifier : AbstractHttpRequestModifier
     {
         public string HeaderKey { get; set; }
         public string HeaderValue { get; set; }
-        public HttpRequestSingleHeaderModifier(string headerKey, string headerValue)
+        public HttpRequestSimpleHeaderModifier(string headerKey, string headerValue)
         {
             HeaderKey = headerKey;
             HeaderValue = headerValue;
@@ -27,7 +27,8 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
         }
         public override void WriteBodyContent(System.IO.Stream requestStream)
         {
-            
+
         }
+
     }
 }

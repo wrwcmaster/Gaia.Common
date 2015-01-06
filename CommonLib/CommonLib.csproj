@@ -35,8 +35,11 @@
   <ItemGroup>
     <Compile Include="KeyValuePairList.cs" />
     <Compile Include="Net\Http\HttpHeaderModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\HttpRequestJSONModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleUriModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\HttpRequestUrlEncodedFormModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestMultipartFormModifier.cs" />
-    <Compile Include="Net\Http\RequestModifier\HttpRequestSingleHeaderModifier.cs" />
+    <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleHeaderModifier.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseJSONObjectParser.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseStringParser.cs" />
     <Compile Include="Net\Http\ResponseParser\IHttpResponseParser.cs" />

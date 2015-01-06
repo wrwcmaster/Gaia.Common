@@ -61,6 +61,45 @@ namespace Gaia.CommonLib.Net.Http
             HttpWebRequest request = SendRequest(uri, method, modifiers, control);
             return ParseResponse(request, parser, control);
         }
+
+        public static KeyValuePairList<string, string> QueryToKeyValuePair(string query)
+        {
+            KeyValuePairList<string, string> rtn = new KeyValuePairList<string, string>();
+            query = query ?? "";
+            string[] pairList = query.Split('&');
+            foreach (string pair in pairList)
+            {
+                int index = pair.IndexOf("=");
+                if (index >= 0 && index < pair.Length)
+                {
+                    string key = pair.Substring(0, index);
+                    string value = pair.Substring(index + 1);//TODO: check range, decode
+                    rtn.Add(key, value);
+                }
+            }
+            return rtn;
+        }
+
+        public static string KeyValuePairToQuery(IEnumerable<KeyValuePair<string, string>> parameters)
+        {
+            StringWriter sw = new StringWriter();
+            bool firstFlag = true;
+            foreach (KeyValuePair<string, string> parameter in parameters)
+            {
+                if (firstFlag)
+                {
+                    firstFlag = false;
+                }
+                else
+                {
+                    sw.Write("&");
+                }
+                sw.Write(parameter.Key); //TODO: query parameter encoding
+                sw.Write("=");
+                sw.Write(parameter.Value);
+            }
+            return sw.ToString();
+        }
 	}
 }
 

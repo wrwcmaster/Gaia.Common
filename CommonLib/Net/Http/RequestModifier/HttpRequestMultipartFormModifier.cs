@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gaia.CommonLib.Net.Http.RequestModifier
 {
-    public class HttpRequestMultipartFormModifier : AbstractHttpRequestModifier
+    public sealed class HttpRequestMultipartFormModifier : AbstractHttpRequestModifier
     {
         public class FileInfo
         {
@@ -62,8 +62,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
 
         private void WriteText(Stream requestStream, string text)
         {
-            byte[] contents = Encoding.GetBytes(text);
-            requestStream.Write(contents, 0, contents.Length);//TODO: use buffer
+            WriteText(requestStream, text, Encoding);
         }
 
         private void WriteParamBodyParts(Stream requestStream)
