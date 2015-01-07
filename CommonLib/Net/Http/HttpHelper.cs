@@ -6,6 +6,7 @@ using Gaia.CommonLib.Net.Http.RequestModifier;
 using System.Collections.Generic;
 using System.IO;
 using Gaia.CommonLib.Net.Http.ResponseParser;
+using System.Web;
 
 namespace Gaia.CommonLib.Net.Http
 {
@@ -25,12 +26,15 @@ namespace Gaia.CommonLib.Net.Http
 				request = modifier.PreProcessRequest(request);
 			}
 
-			Stream stream = request.GetRequestStream();
-			foreach (var modifier in modifiers)
-			{
-				modifier.WriteBodyContent(stream);
-			}
-
+            if (method != HttpMethod.GET)
+            {
+                Stream stream = request.GetRequestStream();
+                foreach (var modifier in modifiers)
+                {
+                    modifier.WriteBodyContent(stream);
+                }
+            }
+			
 			foreach (var modifier in modifiers)
 			{
 				request = modifier.PostProcessRequest(request);
@@ -72,8 +76,8 @@ namespace Gaia.CommonLib.Net.Http
                 int index = pair.IndexOf("=");
                 if (index >= 0 && index < pair.Length)
                 {
-                    string key = pair.Substring(0, index);
-                    string value = pair.Substring(index + 1);//TODO: check range, decode
+                    string key = HttpUtility.UrlDecode(pair.Substring(0, index));
+                    string value = HttpUtility.UrlDecode(pair.Substring(index + 1));//TODO: check range, decode
                     rtn.Add(key, value);
                 }
             }
@@ -94,9 +98,9 @@ namespace Gaia.CommonLib.Net.Http
                 {
                     sw.Write("&");
                 }
-                sw.Write(parameter.Key); //TODO: query parameter encoding
+                sw.Write(HttpUtility.UrlEncode(parameter.Key)); //TODO: query parameter encoding
                 sw.Write("=");
-                sw.Write(parameter.Value);
+                sw.Write(HttpUtility.UrlEncode(parameter.Value));
             }
             return sw.ToString();
         }

@@ -19,7 +19,7 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
         public override Uri ModifyUri(Uri originalUri)
         {
             UriBuilder builder = new UriBuilder(originalUri);
-            var parameters = HttpHelper.QueryToKeyValuePair(builder.Query);
+            var parameters = HttpHelper.QueryToKeyValuePair((builder.Query != null && builder.Query.StartsWith("?")) ? builder.Query.Substring(1) : builder.Query);
             int insertIndex = 0;
             for (; insertIndex < parameters.Count; insertIndex++)
             {
