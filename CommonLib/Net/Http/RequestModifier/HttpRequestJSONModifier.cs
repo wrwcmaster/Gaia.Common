@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib.Net.Http.RequestModifier
+namespace Gaia.Common.Net.Http.RequestModifier
 {
     public sealed class HttpRequestJSONModifier<T> : AbstractHttpRequestModifier
     {

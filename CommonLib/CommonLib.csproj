@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C586E3C8-1870-4054-833E-CF4322C31E44}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Gaia.CommonLib</RootNamespace>
-    <AssemblyName>Gaia.CommonLib</AssemblyName>
+    <RootNamespace>Gaia.Common</RootNamespace>
+    <AssemblyName>Gaia.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

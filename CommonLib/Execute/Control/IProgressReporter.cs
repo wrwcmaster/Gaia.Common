@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Gaia.Common.Event;
+using System;
 
-namespace Gaia.CommonLib.Execute.Control
+namespace Gaia.Common.Execute.Control
 {
 	public interface IProgressReporter
 	{

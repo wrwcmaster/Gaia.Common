@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gaia.CommonLib
+namespace Gaia.Common.Event
 {
 	public class GenericEventArgs<T> : EventArgs
 	{

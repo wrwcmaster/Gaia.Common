@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace Gaia.CommonLib.Net.Http.RequestModifier
+namespace Gaia.Common.Net.Http.RequestModifier
 {
     public abstract class AbstractHttpRequestModifier : IHttpRequestModifier
     {

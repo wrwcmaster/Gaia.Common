@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib.Net.Http.ResponseParser
+namespace Gaia.Common.Net.Http.ResponseParser
 {
     public class HttpResponseJSONObjectParser<T> : IHttpResponseParser<T>
     {

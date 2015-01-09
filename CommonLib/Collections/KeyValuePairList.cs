@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib
+namespace Gaia.Common.Collections
 {
     public class KeyValuePairList<TKey, TValue> : List<KeyValuePair<TKey, TValue>>
     {

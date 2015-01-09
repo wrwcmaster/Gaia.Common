@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib.Net.Http.RequestModifier
+namespace Gaia.Common.Net.Http.RequestModifier
 {
     public class HttpRequestSimpleUriModifier : AbstractHttpRequestModifier
     {

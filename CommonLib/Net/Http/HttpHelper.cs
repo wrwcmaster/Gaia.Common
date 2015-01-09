@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Net;
 using System.Linq;
-using Gaia.CommonLib.Execute.Control;
-using Gaia.CommonLib.Net.Http.RequestModifier;
+using Gaia.Common.Execute.Control;
+using Gaia.Common.Net.Http.RequestModifier;
 using System.Collections.Generic;
 using System.IO;
-using Gaia.CommonLib.Net.Http.ResponseParser;
+using Gaia.Common.Net.Http.ResponseParser;
 using System.Web;
+using Gaia.Common.Collections;
 
-namespace Gaia.CommonLib.Net.Http
+namespace Gaia.Common.Net.Http
 {
 	public static class HttpHelper
 	{

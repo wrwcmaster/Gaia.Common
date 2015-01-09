@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib.Text
+namespace Gaia.Common.Text
 {
     public static class StringExtension
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gaia.CommonLib.Net.Http.RequestModifier
+namespace Gaia.Common.Net.Http.RequestModifier
 {
 	public interface IHttpRequestUriModifier
 	{

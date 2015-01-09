@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Gaia.CommonLib.Text;
+using Gaia.Common.Text;
 
-namespace Gaia.CommonLib.Net.Http.ResponseParser
+namespace Gaia.Common.Net.Http.ResponseParser
 {
     public class HttpResponseFileParser : IHttpResponseParser<HttpResponseFileParser.TempFileInfo>
     {

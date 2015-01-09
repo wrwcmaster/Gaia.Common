@@ -1,4 +1,4 @@
-﻿using Gaia.CommonLib.Execute.Control;
+﻿using Gaia.Common.Execute.Control;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gaia.CommonLib.Net.Http.ResponseParser
+namespace Gaia.Common.Net.Http.ResponseParser
 {
     public interface IHttpResponseParser<T>
     {
