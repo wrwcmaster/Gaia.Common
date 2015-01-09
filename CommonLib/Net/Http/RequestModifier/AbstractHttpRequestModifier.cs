@@ -73,6 +73,8 @@ namespace Gaia.CommonLib.Net.Http.RequestModifier
                         break;
                     case "CONTENT-LENGTH": request.ContentLength = Convert.ToInt64(value);
                         break;
+                    case "USER-AGENT": request.UserAgent = value;
+                        break;
                     default:
                         request.Headers.Set(key, value);
                         break;

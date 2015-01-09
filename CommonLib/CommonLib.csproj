@@ -34,7 +34,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KeyValuePairList.cs" />
+    <Compile Include="Collections\KeyValuePairList.cs" />
     <Compile Include="Net\Http\HttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestJSONModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleUriModifier.cs" />
@@ -42,6 +42,7 @@
     <Compile Include="Net\Http\RequestModifier\HttpRequestMultipartFormModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleHeaderModifier.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseJSONObjectParser.cs" />
+    <Compile Include="Net\Http\ResponseParser\HttpResponseFileParser.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseStringParser.cs" />
     <Compile Include="Net\Http\ResponseParser\IHttpResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Net\Http\RequestModifier\IHttpRequestBodyModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\IHttpRequestModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\AbstractHttpRequestModifier.cs" />
+    <Compile Include="Text\StringExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />
