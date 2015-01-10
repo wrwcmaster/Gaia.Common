@@ -25,7 +25,7 @@ namespace Gaia.Common.IO
                 int currentProgress = 0;
                 long currentLength = 0;
 
-                while ((len = inputStream.Read(buffer, 0, bufferSize)) != -1)
+                while ((len = inputStream.Read(buffer, 0, bufferSize)) > 0)
                 {
                     if(control != null && size > 0){
                         if(control.isCancelled()) break;

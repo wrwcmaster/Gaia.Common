@@ -22,7 +22,7 @@ namespace Gaia.Common.Net.Http.ResponseParser
             string fileName = response.Headers.Get("Content-Disposition").Extract("filename=\"", "\"");
             using (FileStream fs = new FileStream(tempFile, FileMode.Create))
             {
-                long size = fs.Length;
+                long size = response.ContentLength;
                 using (Stream s = response.GetResponseStream())
                 {
                     s.CopyTo(fs, size, control); 
