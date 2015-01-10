@@ -4,7 +4,7 @@ namespace Gaia.Common.Execute.Control
 {
 	public interface IExecutionControlSplitter
 	{
-		IExecutionControl getSplitControl(float portion);
+		IExecutionControl GetSplitControl(float portion);
 	}
 }
 

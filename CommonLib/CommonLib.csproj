@@ -35,6 +35,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\KeyValuePairList.cs" />
+    <Compile Include="Event\EventExtension.cs" />
+    <Compile Include="Execute\Control\CancellationIndicator.cs" />
+    <Compile Include="Execute\Control\ExecutionControl.cs" />
+    <Compile Include="Execute\Control\IExecutionProgress.cs" />
+    <Compile Include="IO\StreamExtension.cs" />
     <Compile Include="Net\Http\HttpHeaderModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestJSONModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleUriModifier.cs" />

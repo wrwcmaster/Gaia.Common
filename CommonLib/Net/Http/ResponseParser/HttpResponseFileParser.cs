@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gaia.Common.Text;
+using Gaia.Common.IO;
 
 namespace Gaia.Common.Net.Http.ResponseParser
 {
@@ -21,9 +22,10 @@ namespace Gaia.Common.Net.Http.ResponseParser
             string fileName = response.Headers.Get("Content-Disposition").Extract("filename=\"", "\"");
             using (FileStream fs = new FileStream(tempFile, FileMode.Create))
             {
+                long size = fs.Length;
                 using (Stream s = response.GetResponseStream())
                 {
-                    s.CopyTo(fs); //TODO: support execution control
+                    s.CopyTo(fs, size, control); 
                 }
             }
             return new HttpResponseFileParser.TempFileInfo { TempFilePath = tempFile, PreferredName = fileName };
