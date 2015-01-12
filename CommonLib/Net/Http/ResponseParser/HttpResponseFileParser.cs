@@ -19,7 +19,15 @@ namespace Gaia.Common.Net.Http.ResponseParser
         public HttpResponseFileParser.TempFileInfo ParseHttpResponse(System.Net.HttpWebResponse response, Execute.Control.IExecutionControl control)
         {
             string tempFile = Path.GetTempFileName();
-            string fileName = response.Headers.Get("Content-Disposition").Extract("filename=\"", "\"");
+            string fileName = Path.GetFileName(tempFile);
+            string contentDisposition = response.Headers.Get("Content-Disposition");
+            foreach(string part in contentDisposition.Split(';')){
+                string trimedPart = part.Trim();
+                if(trimedPart.StartsWith("filename=")){
+                    fileName = trimedPart.Substring(9).Trim('"');
+                    break;
+                }
+            }
             using (FileStream fs = new FileStream(tempFile, FileMode.Create))
             {
                 long size = response.ContentLength;
