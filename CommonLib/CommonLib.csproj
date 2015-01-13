@@ -35,6 +35,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\KeyValuePairList.cs" />
+    <Compile Include="Cryptography\MD5Extension.cs" />
+    <Compile Include="DateTimeExtension.cs" />
     <Compile Include="Event\EventExtension.cs" />
     <Compile Include="Execute\Control\CancellationIndicator.cs" />
     <Compile Include="Execute\Control\ExecutionControl.cs" />
@@ -48,6 +50,7 @@
     <Compile Include="Net\Http\RequestModifier\HttpRequestSimpleHeaderModifier.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseJSONObjectParser.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseFileParser.cs" />
+    <Compile Include="Net\Http\ResponseParser\HttpResponseCustomParser.cs" />
     <Compile Include="Net\Http\ResponseParser\HttpResponseStringParser.cs" />
     <Compile Include="Net\Http\ResponseParser\IHttpResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="Net\Http\RequestModifier\IHttpRequestBodyModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\IHttpRequestModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\AbstractHttpRequestModifier.cs" />
+    <Compile Include="Serialization\DataContractJsonSerializerExtension.cs" />
     <Compile Include="Text\StringExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

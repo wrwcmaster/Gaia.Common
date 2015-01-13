@@ -27,6 +27,13 @@ namespace Gaia.Common.Net.Http.RequestModifier
                 FileName = Path.GetFileName(fileStream.Name);
                 FileStreamProvider = () => fileStream;
             }
+
+            public FileInfo(string fileName, Stream stream)
+            {
+                if (stream == null) throw new ArgumentNullException("stream");
+                FileName = fileName;
+                FileStreamProvider = () => stream;
+            }
         }
 
         private IEnumerable<KeyValuePair<string, string>> _parameters;
