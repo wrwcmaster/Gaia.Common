@@ -23,5 +23,18 @@ namespace Gaia.Common.Serialization
                 }
             }
         }
+
+        public static string Serialize(this DataContractJsonSerializer serializer, object obj)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                serializer.WriteObject(ms, obj);
+                ms.Position = 0;
+                using (StreamReader sr = new StreamReader(ms))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
+        }
     }
 }
