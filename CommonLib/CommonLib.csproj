@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="Collections\IEnumerableExtension.cs" />
     <Compile Include="Collections\KeyValuePairList.cs" />
-    <Compile Include="Cryptography\MD5Extension.cs" />
+    <Compile Include="Cryptography\HashAlgorithmExtension.cs" />
     <Compile Include="DateTimeExtension.cs" />
     <Compile Include="Event\EventExtension.cs" />
     <Compile Include="Execute\Control\CancellationIndicator.cs" />
@@ -69,6 +69,7 @@
     <Compile Include="Net\Http\RequestModifier\IHttpRequestModifier.cs" />
     <Compile Include="Net\Http\RequestModifier\AbstractHttpRequestModifier.cs" />
     <Compile Include="Serialization\DataContractJsonSerializerExtension.cs" />
+    <Compile Include="Serialization\KeyValuePairParser.cs" />
     <Compile Include="Text\StringExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

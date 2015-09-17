@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Gaia.Common.Cryptography
 {
-    public static class MD5Extension
+    public static class HashAlgorithmExtension
     {
-        public static string GetMd5Hash(this MD5 md5Hash, string input)
+        public static string GetHashedString(this HashAlgorithm hashAlgorithm, string input)
         {
 
             // Convert the input string to a byte array and compute the hash. 
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
 
             // Create a new Stringbuilder to collect the bytes 
             // and create a string.
@@ -31,10 +31,10 @@ namespace Gaia.Common.Cryptography
         }
 
         // Verify a hash against a string. 
-        public static bool VerifyMd5Hash(this MD5 md5Hash, string input, string hash)
+        public static bool VerifyHashString(this HashAlgorithm hashAlgorithm, string input, string hash)
         {
             // Hash the input. 
-            string hashOfInput = GetMd5Hash(md5Hash, input);
+            string hashOfInput = GetHashedString(hashAlgorithm, input);
 
             // Create a StringComparer an compare the hashes.
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
