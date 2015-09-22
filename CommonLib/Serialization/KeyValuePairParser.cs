@@ -14,13 +14,13 @@ namespace Gaia.Common.Serialization
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <param name="dictionary">The dictionary to be converted</param>
-        /// <param name="format">The format for each key-value pair, like "%s=%s"</param>
+        /// <param name="format">The format for each key-value pair, like "{0}={1}"</param>
         /// <param name="separator">The divider between key-value pair, like ";"</param>
         /// <returns>Formatted dictionary content as string</returns>
         public static string Compose<TKey, TValue>(Dictionary<TKey, TValue> dictionary, string format, string separator)
         {
             if (dictionary == null) return null;
-            if (string.IsNullOrEmpty(format)) format = "%s=%s";
+            if (string.IsNullOrEmpty(format)) format = "{0}={1}";
             if (string.IsNullOrEmpty(separator)) separator = ";";
             bool isFirstItem = true;
 
