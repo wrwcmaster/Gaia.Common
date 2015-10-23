@@ -13,7 +13,7 @@ namespace Gaia.Common.Net.Http
 {
 	public static class HttpHelper
 	{
-        public static HttpWebRequest SendRequest(Uri uri, HttpMethod method, IList<IHttpRequestModifier> modifiers, IExecutionControl control)
+        public static HttpWebRequest BuildRequest(Uri uri, HttpMethod method, IList<IHttpRequestModifier> modifiers, IExecutionControl control)
 		{
 			if (control != null && control.isCancelled ()) return null;
 			if(method == null) throw new ArgumentNullException("method");
@@ -63,7 +63,7 @@ namespace Gaia.Common.Net.Http
         {
             //TODO: calc progress
             //TODO: Exception Handling
-            HttpWebRequest request = SendRequest(uri, method, modifiers, control);
+            HttpWebRequest request = BuildRequest(uri, method, modifiers, control);
             return ParseResponse(request, parser, control);
         }
 
